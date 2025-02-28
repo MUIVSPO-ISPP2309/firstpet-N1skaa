@@ -1,5 +1,12 @@
-a=int(input('Введите сумму счета.'))
-d=a/100
+while True:
+    try:
+        a = float(input('Введите сумму счета: '))
+    except ValueError:
+        print("Неверный ввод, попробуйте заново ввести сумму")
+    else:
+        print('Вы ввели сумму счета -', a)
+        break
+d = a / 100
 while True:
     b = input('Желаете ли вы оставить чаевые? (да/нет): ').lower()
     if b == 'да' or b == 'yes':
@@ -19,7 +26,7 @@ while True:
         f = d * c
         j = (d * c) + a
         a = j
-        print('Чаевые составляют - ', f)
+        print('Чаевые составляют - {:.2f}'.format(f))
         break  
     elif b == 'нет' or b == 'no':
         print('Хорошо')
@@ -27,14 +34,14 @@ while True:
     else:
         print('Некорректный ответ. Пожалуйста, введите "да" или "нет".')
 while True:
-    g=input('Желаете ли вы разделить счет?(да/нет)').lower()
-    if g=='да' or g=='yes':
-        m=int(input('Сколько вас человек?'))
-        v=a/m
-        print(v,'-Сумма к оплате с человека')
+    g = input('Желаете ли вы разделить счет? (да/нет): ').lower()
+    if g == 'да' or g == 'yes':
+        m = int(input('Сколько вас человек? '))
+        v = a / m
+        print('{:.2f} - Сумма к оплате с человека'.format(v))
         break
-    elif g=='нет' or g=='no':
-        print('Хорошо.Вот сумма к оплате - ', a)
+    elif g == 'нет' or g == 'no':
+        print('Хорошо. Вот сумма к оплате - {:.2f}'.format(a))
         break
     else:
         print('Некорректный ответ. Пожалуйста, введите "да" или "нет".')
